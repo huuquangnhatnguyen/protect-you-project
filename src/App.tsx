@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 import { Container } from "@mui/material";
 import Header from "./components/Header";
@@ -11,7 +9,6 @@ import Footer from "./components/Footer";
 import mockData from "./assets/mockData/mockData.json";
 
 function App() {
-  const [count, setCount] = useState(0);
   const [curPage, setCurPage] = useState("Dashboard");
   const curDate = new Date().toLocaleDateString("en-US", {
     year: "numeric",
@@ -19,7 +16,8 @@ function App() {
     day: "numeric",
   });
   const [currentSeason, setSeason] = useState("fall");
-  const [data, setData] = useState(mockData);
+  // const [data, setData] = useState(mockData);
+  console.log(mockData);
 
   useEffect(() => {
     const getSeason = () => {
@@ -67,7 +65,10 @@ function App() {
         <Header curPage={curPage} setCurPage={setCurPage} />
         <div id="main-app">
           {curPage === "Dashboard" && (
-            <Dashboard currentSeason={currentSeason} data={mockData} />
+            <Dashboard
+              currentSeason={currentSeason}
+              data={mockData[currentSeason]}
+            />
           )}
           {curPage === "Nutrition" && <Nutrition />}
           {curPage === "Alerts" && <Alerts />}

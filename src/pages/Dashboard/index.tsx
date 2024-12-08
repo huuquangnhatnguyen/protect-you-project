@@ -25,7 +25,8 @@ const Item = styled(Paper)(({ theme }) => ({
 
 function Dashboard(props: any) {
   const { currentSeason, data } = props;
-  const diseases = data.filter((item: any) => item.type === "disease");
+  // const diseases = data.filter((item: any) => item.type === "disease");
+  console.log(currentSeason, data);
   return (
     <Box sx={{ flexGrow: 1, height: "480px" }}>
       <Grid container spacing={2} direction={"column"}>
