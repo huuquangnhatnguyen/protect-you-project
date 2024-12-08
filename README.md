@@ -50,7 +50,3 @@ We are relatively new to svelte and javascript and utilized Github's copilot cod
 Tailwind CSS
 chart.js
 
-# TO RUN LOCALLY
-# Svelte + Vite
-
-This template should help get you started developing with Svelte in Vite.
