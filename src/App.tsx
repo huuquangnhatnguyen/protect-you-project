@@ -67,10 +67,7 @@ function App() {
         <Header curPage={curPage} setCurPage={setCurPage} />
         <div id="main-app">
           {curPage === "Dashboard" && (
-            <Dashboard
-              currentSeason={currentSeason}
-              data={mockData[currentSeason]}
-            />
+            <Dashboard currentSeason={currentSeason} data={mockData} />
           )}
           {curPage === "Nutrition" && <Nutrition />}
           {curPage === "Alerts" && <Alerts />}
