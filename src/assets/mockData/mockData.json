@@ -1,5 +1,5 @@
 {
-    "winter": {
+    "Winter": {
         "commonDiseases": [
             {
                 "name": "Influenza (Flu)",
@@ -26,17 +26,17 @@
                 "nutrients": ["Vitamin C"]
             },
             {
-                "name": "Root Vegetables",
-                "examples": ["Sweet Potatoes", "Carrots", "Parsnips"],
-                "nutrients": ["Beta-Carotene"]
-            },
-            {
                 "name": "Ginger and Turmeric",
                 "description": "Immune-boosting herbs and spices with anti-inflammatory properties"
+            },
+            {
+                "name": "Fatty Fish",
+                "examples": ["Salmon", "Mackerel", "Sardines"],
+                "nutrients": ["Vitamin D", "Omega-3 Fatty Acids"]
             }
         ]
     },
-    "spring": {
+    "Spring": {
         "commonDiseases": [
             {
                 "name": "Seasonal Allergies",
@@ -74,7 +74,7 @@
             }
         ]
     },
-    "summer": {
+    "Summer": {
         "commonDiseases": [
             {
                 "name": "Heat-Related Illnesses",
@@ -110,7 +110,7 @@
             }
         ]
     },
-    "fall": {
+    "Autumn": {
         "commonDiseases": [
             {
                 "name": "Respiratory Infections",

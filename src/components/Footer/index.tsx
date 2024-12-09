@@ -1,12 +1,10 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-Footer.propTypes = {
-  value: PropTypes.string,
+type FooterProps = {
+  value: string;
 };
 
-function Footer(props: any) {
-  const { value } = props;
+function Footer({ value }: FooterProps) {
   return (
     <div
       style={{

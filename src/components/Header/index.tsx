@@ -5,15 +5,13 @@ import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import RestoreIcon from "@mui/icons-material/Restore";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-import PropTypes from "prop-types";
 
-Header.propTypes = {
-  curPage: PropTypes.string,
-  setCurPage: PropTypes.func,
+type headerPropTypes = {
+  curPage: string;
+  setCurPage: (newValue: string) => void;
 };
 
-export default function Header(props: any) {
-  const { curPage, setCurPage } = props;
+export default function Header({ curPage, setCurPage }: headerPropTypes) {
   return (
     <Box sx={{ width: "100%", height: "60px" }}>
       <BottomNavigation

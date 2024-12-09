@@ -17,19 +17,19 @@ function App() {
   });
   const [currentSeason, setSeason] = useState("fall");
   // const [data, setData] = useState(mockData);
-  console.log(mockData);
+  // console.log(mockData);
 
   useEffect(() => {
     const getSeason = () => {
       const month = new Date().getMonth();
       if (month >= 2 && month <= 4) {
-        return "spring";
+        return "Spring";
       } else if (month >= 5 && month <= 7) {
-        return "summer";
+        return "Summer";
       } else if (month >= 8 && month <= 10) {
-        return "autumn";
+        return "Autumn";
       } else {
-        return "winter";
+        return "Winter";
       }
     };
     setSeason(getSeason());
@@ -58,7 +58,7 @@ function App() {
           paddingBottom: "0.5rem",
           borderRadius: "1rem",
           border: "5px solid black",
-          height: "600px",
+          height: "550px",
           width: "800px",
         }}
       >
