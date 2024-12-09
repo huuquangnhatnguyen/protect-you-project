@@ -56,7 +56,7 @@ function App() {
         style={{
           marginTop: "5rem",
           backgroundColor: "white",
-          padding: 0,
+          padding: 2,
           paddingBottom: "0.5rem",
           borderRadius: "1rem",
           border: "5px solid",
@@ -73,6 +73,7 @@ function App() {
             <Dashboard
               currentSeason={currentSeason}
               data={mockData[currentSeason]}
+              setCurPage={setCurPage}
             />
           )}
           {curPage === "Nutrition" && (

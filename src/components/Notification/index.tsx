@@ -43,8 +43,13 @@ function Notification({ content, title, type, time }: NotificationProps) {
       : "#0077B6";
   return (
     <Item sx={{ background: bgColor }}>
-      <h2 style={{ color: titleColor, fontSize: "1.8rem" }}>{title}</h2>
-      <p style={{ fontSize: "1rem" }}>{content}</p>
+      <h2 style={{ color: titleColor, fontSize: "1.8rem", marginBottom: 0 }}>
+        {title}
+      </h2>
+      <p style={{ fontSize: "0.8rem", color: titleColor, marginTop: 0 }}>
+        {time}
+      </p>
+      <p style={{ fontSize: "1rem", marginTop: 0 }}>{content}</p>
     </Item>
   );
 }

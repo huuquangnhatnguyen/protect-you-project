@@ -30,7 +30,6 @@ function Nutrition({ data }: NutritionProps) {
           (ingredient: seasonalIngredientsType) => ingredient.color
         )
       : [];
-  const demoData = seasonalIngredients[0];
   return (
     <Box sx={{ flexGrow: 1, height: "430px", margin: "auto" }}>
       <Grid container spacing={1} direction={"row"}>
@@ -38,7 +37,7 @@ function Nutrition({ data }: NutritionProps) {
           <GroupOfItems
             key={group}
             title={group}
-            items={demoData}
+            items={seasonalIngredients[index]}
             color={colorMapping[index]}
           />
         ))}

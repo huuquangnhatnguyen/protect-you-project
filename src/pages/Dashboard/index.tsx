@@ -1,7 +1,5 @@
 import React from "react";
-import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid2";
 import {
   DiseaseInfoType,
@@ -9,37 +7,19 @@ import {
   seasonalIngredientsType,
 } from "../../@types/Dashboard/data.type";
 import ItemCard from "../../components/ItemCard";
+import PopUp from "../../components/Popup";
 
 type DashboardPropTypes = {
   currentSeason: string;
   data: SeasonalDataType;
+  curPage?: string;
+  setCurPage: (newValue: string) => void;
 };
 
-const Item = styled(Paper)(({ theme }) => ({
-  margin: "10px auto",
-  backgroundColor: "#fff",
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-  ...theme.applyStyles("dark", {
-    backgroundColor: "#1A2027",
-  }),
-  fontSize: "1.2rem",
-  boxShadow: "0 0 5px 0 rgba(0,0,0,0.3)",
-  width: "fit-content",
-  minWidth: "50%",
-  "&:hover": {
-    backgroundColor: theme.palette.action.hover,
-    fontWeight: "bold",
-  },
-  height: "fit-content",
-}));
-
-function Dashboard({ currentSeason, data }: DashboardPropTypes) {
+function Dashboard({ currentSeason, data, setCurPage }: DashboardPropTypes) {
   const commonDiseases =
     data && data["commonDiseases"]
-      ? data["commonDiseases"].map((disease: DiseaseInfoType) => disease.name)
+      ? data["commonDiseases"].map((disease: DiseaseInfoType) => disease)
       : [];
 
   const advisoryNutrients = data && data["advisoryNutrients"];
@@ -64,8 +44,9 @@ function Dashboard({ currentSeason, data }: DashboardPropTypes) {
             }}
           >{`${currentSeason}'s common diseases:`}</h1>
           {commonDiseases &&
-            commonDiseases.map((disease: string) => (
-              <Item key={disease}>{disease}</Item>
+            commonDiseases.map((disease: DiseaseInfoType) => (
+              // <Item key={disease}>{disease}</Item>
+              <PopUp key={disease.name} disease={disease} />
             ))}
         </Grid>
 
@@ -116,7 +97,11 @@ function Dashboard({ currentSeason, data }: DashboardPropTypes) {
             >
               {seasonalIngredientGroups &&
                 seasonalIngredientGroups.map((ingredient: string) => (
-                  <ItemCard key={ingredient} name={ingredient} />
+                  <ItemCard
+                    key={ingredient}
+                    name={ingredient}
+                    setCurPage={setCurPage}
+                  />
                 ))}
             </Grid>
           </Grid>

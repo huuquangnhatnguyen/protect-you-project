@@ -2,10 +2,9 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
-import RestoreIcon from "@mui/icons-material/Restore";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
-
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import RestaurantMenuIcon from "@mui/icons-material/RestaurantMenu";
+import NotificationsIcon from "@mui/icons-material/Notifications";
 type headerPropTypes = {
   curPage: string;
   setCurPage: (newValue: string) => void;
@@ -13,12 +12,11 @@ type headerPropTypes = {
 
 export default function Header({ curPage, setCurPage }: headerPropTypes) {
   return (
-    <Box sx={{ width: "100%", height: "60px" }}>
+    <Box sx={{ width: "100%", height: "60px", borderBottom: "1px solid #000" }}>
       <BottomNavigation
         showLabels
         value={curPage}
         onChange={(event, newValue) => {
-          console.log(newValue);
           setCurPage(newValue);
         }}
         sx={{
@@ -30,17 +28,17 @@ export default function Header({ curPage, setCurPage }: headerPropTypes) {
         <BottomNavigationAction
           sx={{ width: "100%" }}
           label="Dashboard"
-          icon={<RestoreIcon />}
+          icon={<DashboardIcon />}
           value="Dashboard"
         />
         <BottomNavigationAction
           label="Nutrition"
-          icon={<FavoriteIcon />}
+          icon={<RestaurantMenuIcon />}
           value="Nutrition"
         />
         <BottomNavigationAction
           label="Alerts"
-          icon={<LocationOnIcon />}
+          icon={<NotificationsIcon />}
           value="Alerts"
         />
       </BottomNavigation>

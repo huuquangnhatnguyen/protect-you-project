@@ -9,6 +9,8 @@ type ItemCardProps = {
   //   image: string;
   width?: string;
   height?: string;
+  curPage?: string;
+  setCurPage?: (newValue: string) => void;
 };
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -27,10 +29,10 @@ const Item = styled(Paper)(({ theme }) => ({
   height: "fit-content",
 }));
 
-function ItemCard({ name }: ItemCardProps) {
+function ItemCard({ name, setCurPage }: ItemCardProps) {
   const image = allSvg[name.toLocaleLowerCase()];
   return (
-    <Item>
+    <Item onClick={() => setCurPage("Nutrition")}>
       <img src={image && image} alt={name} />
     </Item>
   );
