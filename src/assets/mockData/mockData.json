@@ -23,16 +23,20 @@
             {
                 "name": "Citrus Fruits",
                 "examples": ["Oranges", "Tangerines", "Grapefruits"],
-                "nutrients": ["Vitamin C"]
+                "nutrients": ["Vitamin C"],
+                "color": "#FFF0E6"
             },
             {
                 "name": "Ginger and Turmeric",
-                "description": "Immune-boosting herbs and spices with anti-inflammatory properties"
+                "examples": ["Ginger", "Turmeric"],
+                "description": "Immune-boosting herbs and spices with anti-inflammatory properties",
+                "color": "#FFFBF0"
             },
             {
                 "name": "Fatty Fish",
                 "examples": ["Salmon", "Mackerel", "Sardines"],
-                "nutrients": ["Vitamin D", "Omega-3 Fatty Acids"]
+                "nutrients": ["Vitamin D", "Omega-3 Fatty Acids"],
+                "color": "#E6F2F5"
             }
         ]
     },

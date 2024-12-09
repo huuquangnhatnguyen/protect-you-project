@@ -7,6 +7,7 @@ import Nutrition from "./pages/Nutrition";
 import Alerts from "./pages/Alert";
 import Footer from "./components/Footer";
 import mockData from "./assets/mockData/mockData.json";
+import mockNotification from "./assets/mockData/mockNotification.json";
 
 function App() {
   const [curPage, setCurPage] = useState("Dashboard");
@@ -50,6 +51,7 @@ function App() {
       >
         <h2>My App</h2>
       </nav>
+      <div></div>
       <Container
         style={{
           marginTop: "5rem",
@@ -57,7 +59,10 @@ function App() {
           padding: 0,
           paddingBottom: "0.5rem",
           borderRadius: "1rem",
-          border: "5px solid black",
+          border: "5px solid",
+          borderImage: "linear-gradient(to bottom, silver, black) 1",
+          boxShadow:
+            "0 4px 8px rgba(0, 0, 0, 0.1), inset 0 0 10px rgba(0, 0, 0, 0.1)",
           height: "550px",
           width: "800px",
         }}
@@ -70,8 +75,12 @@ function App() {
               data={mockData[currentSeason]}
             />
           )}
-          {curPage === "Nutrition" && <Nutrition />}
-          {curPage === "Alerts" && <Alerts />}
+          {curPage === "Nutrition" && (
+            <Nutrition data={mockData[currentSeason]} />
+          )}
+          {curPage === "Alerts" && (
+            <Alerts alerts={mockNotification["notifications"]} />
+          )}
         </div>
         <Footer value={curDate} />
       </Container>

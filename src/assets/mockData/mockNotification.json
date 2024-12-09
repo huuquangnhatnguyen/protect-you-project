@@ -1,0 +1,17 @@
+{
+   "notifications": 
+   [
+    { 
+    "title": "Multistate outbreak: Salmonella in cucumber",
+    "time": "11/26/2024",
+    "type": "warning",
+    "content": "An outbreak of Salmonella in cucumbers led to a recall of whole fresh American cucumbers grown by Agrotato, S.A. de C.V. in Sonora, Mexico."
+    },
+    { 
+    "title": "Testing Notification",
+    "time": "11/20/2024",
+    "type": "testing",
+    "content": "This is the testing notification."
+    }
+   ] 
+}

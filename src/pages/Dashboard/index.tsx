@@ -44,14 +44,12 @@ function Dashboard({ currentSeason, data }: DashboardPropTypes) {
 
   const advisoryNutrients = data && data["advisoryNutrients"];
 
-  const seasonalIngredients =
+  const seasonalIngredientGroups =
     data && data["seasonalIngredients"]
       ? data["seasonalIngredients"].map(
           (ingredient: seasonalIngredientsType) => ingredient.name
         )
       : [];
-
-  console.log(seasonalIngredients);
 
   return (
     <Box sx={{ flexGrow: 1, height: "430px" }}>
@@ -116,8 +114,8 @@ function Dashboard({ currentSeason, data }: DashboardPropTypes) {
                 marginTop: "1.2rem",
               }}
             >
-              {seasonalIngredients &&
-                seasonalIngredients.map((ingredient: string) => (
+              {seasonalIngredientGroups &&
+                seasonalIngredientGroups.map((ingredient: string) => (
                   <ItemCard key={ingredient} name={ingredient} />
                 ))}
             </Grid>
