@@ -3,29 +3,109 @@
   margin: 0 auto;
   text-align: center;
   color: #212121;
+  height: 100vh;
 }
 
+body {
+  margin: 0;
+  display: flex;
+  height: 100vh;
+}
 
+.perspective {
+  perspective: 15000px;
+  perspective-origin: 50% -200px;
+  justify-content: center;
+  align-items: center;
+}
 
-/* @keyframes logo-spin {
+.box {
+  --width: 800px;
+  --height: 550px;
+  --depth: 20px;
+  --bgColor: hsl(20, 8%, 69%);
+  width: var(--width);
+  height: var(--height);
+  margin: auto;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.face {
+  position: absolute;
+  width: var(--width);
+  height: var(--height);
+
+  background-color: var(--bgColor);
+  /*   border: 1px solid black; */
+
+  transform-style: preserve-3d;
+}
+
+.side {
+  position: absolute;
+  width: var(--depth);
+  height: var(--height);
+
+  background-color: var(--bgColor);
+  /*   border: 1px solid black; */
+
+  transform-style: preserve-3d;
+}
+
+.cover {
+  position: absolute;
+  width: var(--width);
+  height: var(--depth);
+
+  background-color: var(--bgColor);
+  /*   border: 1px solid black; */
+
+  transform-style: preserve-3d;
+}
+
+.box {
+  animation: rotate 10s linear infinite;
+}
+
+.face.front {
+}
+
+.cover.bottom {
+  top: 100%;
+  transform-origin: top;
+  transform: rotateX(-90deg);
+}
+
+.cover.top {
+  bottom: 100%;
+  transform-origin: bottom;
+  transform: rotateX(90deg);
+}
+
+.face.back {
+  bottom: 200%;
+  transform-origin: center 825px -10px;
+  transform: rotateX(180deg);
+}
+
+.side.right {
+  left: 100%;
+  transform-origin: left;
+  transform: rotateY(90deg);
+}
+
+.side.left {
+  right: 100%;
+  transform-origin: right;
+  transform: rotateY(-90deg);
+}
+
+@keyframes rotate {
   from {
-    transform: rotate(0deg);
+    transform: rotate(0);
   }
   to {
-    transform: rotate(360deg);
+    transform: rotateY(360deg);
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-} */
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
