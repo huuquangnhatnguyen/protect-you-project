@@ -1,17 +1,3 @@
-#root {
-  width: 100vw;
-  margin: 0 auto;
-  text-align: center;
-  color: #212121;
-  height: 100vh;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  height: 100vh;
-}
-
 .perspective {
   perspective: 15000px;
   perspective-origin: 50% -200px;
@@ -40,6 +26,15 @@ body {
   /*   border: 1px solid black; */
 
   transform-style: preserve-3d;
+
+  .front {
+  }
+
+  .back {
+    bottom: 200%;
+    transform-origin: center 825px -10px;
+    transform: rotateX(180deg);
+  }
 }
 
 .side {
@@ -51,6 +46,18 @@ body {
   /*   border: 1px solid black; */
 
   transform-style: preserve-3d;
+
+  .right {
+    left: 100%;
+    transform-origin: left;
+    transform: rotateY(90deg);
+  }
+
+  .left {
+    right: 100%;
+    transform-origin: right;
+    transform: rotateY(-90deg);
+  }
 }
 
 .cover {
@@ -62,44 +69,22 @@ body {
   /*   border: 1px solid black; */
 
   transform-style: preserve-3d;
+
+  .bottom {
+    top: 100%;
+    transform-origin: top;
+    transform: rotateX(-90deg);
+  }
+
+  .top {
+    bottom: 100%;
+    transform-origin: bottom;
+    transform: rotateX(90deg);
+  }
 }
 
-.box::after {
-  animation: rotate 10s linear;
-  animation-iteration-count: 3;
-}
-
-.face.front {
-}
-
-.cover.bottom {
-  top: 100%;
-  transform-origin: top;
-  transform: rotateX(-90deg);
-}
-
-.cover.top {
-  bottom: 100%;
-  transform-origin: bottom;
-  transform: rotateX(90deg);
-}
-
-.face.back {
-  bottom: 200%;
-  transform-origin: center 825px -10px;
-  transform: rotateX(180deg);
-}
-
-.side.right {
-  left: 100%;
-  transform-origin: left;
-  transform: rotateY(90deg);
-}
-
-.side.left {
-  right: 100%;
-  transform-origin: right;
-  transform: rotateY(-90deg);
+.box {
+  animation: rotate 10s linear infinite;
 }
 
 @keyframes rotate {
