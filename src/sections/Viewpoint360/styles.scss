@@ -1,0 +1,97 @@
+.perspective {
+  perspective: 15000px;
+  perspective-origin: 50% -200px;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  --width: 800px;
+  --height: 550px;
+  --depth: 20px;
+  --bgColor: hsl(20, 8%, 69%);
+  width: var(--width);
+  height: var(--height);
+  margin: auto;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.face {
+  position: absolute;
+  width: var(--width);
+  height: var(--height);
+
+  background-color: var(--bgColor);
+  /*   border: 1px solid black; */
+
+  transform-style: preserve-3d;
+
+  .front {
+  }
+
+  .back {
+    bottom: 200%;
+    transform-origin: center 825px -10px;
+    transform: rotateX(180deg);
+  }
+}
+
+.side {
+  position: absolute;
+  width: var(--depth);
+  height: var(--height);
+
+  background-color: var(--bgColor);
+  /*   border: 1px solid black; */
+
+  transform-style: preserve-3d;
+
+  .right {
+    left: 100%;
+    transform-origin: left;
+    transform: rotateY(90deg);
+  }
+
+  .left {
+    right: 100%;
+    transform-origin: right;
+    transform: rotateY(-90deg);
+  }
+}
+
+.cover {
+  position: absolute;
+  width: var(--width);
+  height: var(--depth);
+
+  background-color: var(--bgColor);
+  /*   border: 1px solid black; */
+
+  transform-style: preserve-3d;
+
+  .bottom {
+    top: 100%;
+    transform-origin: top;
+    transform: rotateX(-90deg);
+  }
+
+  .top {
+    bottom: 100%;
+    transform-origin: bottom;
+    transform: rotateX(90deg);
+  }
+}
+
+.box {
+  animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
