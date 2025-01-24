@@ -50,13 +50,31 @@ export default function PopUp({ disease }: PopUpProps) {
   const handleClose = () => setOpen(false);
 
   return (
-    <div>
+    <div className="popup__container">
       <Item onClick={handleOpen}>{name}</Item>
       <Modal
+        disablePortal
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
+        slotProps={{
+          root: {
+            style: {
+              position: "relative",
+            },
+          },
+          backdrop: {
+            style: {
+              position: "relative",
+              backgroundColor: "rgba(0, 0, 0, 0.5)",
+              width: "100%",
+              minWidth: "550px",
+              height: "99%",
+              minHeight: "550px",
+            },
+          },
+        }}
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">

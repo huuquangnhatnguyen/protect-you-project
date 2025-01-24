@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./styles.css";
+import "./styles.scss";
 import bgImg from "../../assets/images/hero-bg.png";
 import { Container, Grid2, Paper, styled } from "@mui/material";
 
@@ -20,25 +20,14 @@ HeroSection.propTypes = {};
 function HeroSection(props) {
   return (
     <div
-      className="hero-container"
+      className="hero__container"
       style={{
         backgroundImage: `url(${bgImg})`,
       }}
     >
-      {" "}
-      <div
-        style={{
-          minHeight: "600px",
-          backgroundColor: "rgba(0, 0, 0, 0.5)",
-          color: "white",
-          display: "flex",
-          textAlign: "left",
-          paddingLeft: "2rem",
-          alignItems: "center",
-        }}
-      >
-        <Container>
-          <Grid2 container spacing={2}>
+      <div className="hero__content">
+        <Container sx={{ margin: 0 }}>
+          <Grid2 container spacing={2} sx={{ maxWidth: "50%" }}>
             <Item>
               <h1 style={{ fontSize: "3rem", fontWeight: "bold" }}>
                 Welcome to <br /> Your Health Dashboard
@@ -49,7 +38,6 @@ function HeroSection(props) {
                 well-being.
               </p>
             </Item>
-            <Item>sth here</Item>
           </Grid2>
         </Container>
       </div>

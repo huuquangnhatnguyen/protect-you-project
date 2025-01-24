@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid2";
 import {
@@ -8,6 +8,41 @@ import {
 } from "../../@types/Dashboard/data.type";
 import ItemCard from "../../components/ItemCard";
 import PopUp from "../../components/Popup";
+import { colors, Modal, Paper, styled, Typography } from "@mui/material";
+
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+  color: colors.grey[900],
+};
+
+const Item = styled(Paper)(({ theme }) => ({
+  margin: "10px auto",
+  backgroundColor: "#fff",
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: "center",
+  color: theme.palette.text.secondary,
+  ...theme.applyStyles("dark", {
+    backgroundColor: "#1A2027",
+  }),
+  fontSize: "1.2rem",
+  boxShadow: "0 0 5px 0 rgba(0,0,0,0.3)",
+  width: "fit-content",
+  minWidth: "50%",
+  "&:hover": {
+    backgroundColor: theme.palette.action.hover,
+    fontWeight: "bold",
+  },
+  height: "fit-content",
+}));
 
 type DashboardPropTypes = {
   currentSeason: string;
@@ -17,6 +52,17 @@ type DashboardPropTypes = {
 };
 
 function Dashboard({ currentSeason, data, setCurPage }: DashboardPropTypes) {
+  const [open, setOpen] = React.useState(false);
+  const [curDiseaseInfo, setCurDiseaseInfo] = React.useState<DiseaseInfoType>();
+
+  const handleDevicePopUp = () => {
+    setOpen(true);
+  };
+  const handleDevicePopupClose = () => {
+    setOpen(false);
+    setCurDiseaseInfo(undefined);
+  };
+
   const commonDiseases =
     data && data["commonDiseases"]
       ? data["commonDiseases"].map((disease: DiseaseInfoType) => disease)
@@ -44,10 +90,53 @@ function Dashboard({ currentSeason, data, setCurPage }: DashboardPropTypes) {
             }}
           >{`${currentSeason}'s common diseases:`}</h1>
           {commonDiseases &&
-            commonDiseases.map((disease: DiseaseInfoType) => (
-              // <Item key={disease}>{disease}</Item>
-              <PopUp key={disease.name} disease={disease} />
-            ))}
+            commonDiseases.map((disease: DiseaseInfoType) => {
+              return (
+                // <Item key={disease}>{disease}</Item>
+                // <PopUp key={disease.name} disease={disease} />
+
+                <Item
+                  onClick={() => {
+                    setCurDiseaseInfo(disease);
+                    setOpen(true);
+                  }}
+                >
+                  {disease.name}
+                </Item>
+              );
+            })}
+          <Modal
+            disablePortal
+            open={open}
+            onClose={handleDevicePopupClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+            slotProps={{
+              root: {
+                style: {
+                  position: "relative",
+                  top: "-280px",
+                },
+              },
+              backdrop: {
+                style: {
+                  position: "relative",
+                  backgroundColor: "rgba(0, 0, 0, 0.5)",
+                  width: "100%",
+                  height: "538px",
+                },
+              },
+            }}
+          >
+            <Box sx={style}>
+              <Typography id="modal-modal-title" variant="h6" component="h2">
+                {curDiseaseInfo?.name}
+              </Typography>
+              <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                {curDiseaseInfo?.description}
+              </Typography>
+            </Box>
+          </Modal>
         </Grid>
 
         <Grid container sx={{ height: "190px" }}>

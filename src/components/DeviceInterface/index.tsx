@@ -4,10 +4,11 @@ import Header from "../Header";
 import Dashboard from "../../pages/Dashboard";
 import Nutrition from "../../pages/Nutrition";
 import Alerts from "../../pages/Alert";
-import Footer from "../../components/Footer";
+import Footer from "../DeviceFooter";
 import mockData from "../../assets/mockData/mockData.json";
 import mockNotification from "../../assets/mockData/mockNotification.json";
 import "./styles.scss";
+import DeviceFooter from "../DeviceFooter";
 
 function DeviceInterface() {
   const [curPage, setCurPage] = useState("Dashboard");
@@ -17,8 +18,6 @@ function DeviceInterface() {
     day: "numeric",
   });
   const [currentSeason, setSeason] = useState("fall");
-  // const [data, setData] = useState(mockData);
-  // console.log(mockData);
 
   useEffect(() => {
     const getSeason = () => {
@@ -68,7 +67,7 @@ function DeviceInterface() {
             <Alerts alerts={mockNotification["notifications"]} />
           )}
         </div>
-        <Footer value={curDate} />
+        <DeviceFooter value={curDate} />
       </Container>
     </div>
   );
