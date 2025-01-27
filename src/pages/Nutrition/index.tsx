@@ -6,9 +6,10 @@ import {
   seasonalIngredientsType,
 } from "../../@types/Dashboard/data.type";
 import GroupOfItems from "../../components/GroupOfItems";
+import { DocumentData } from "firebase/firestore";
 
 type NutritionProps = {
-  data: SeasonalDataType;
+  data: DocumentData;
 };
 
 function Nutrition({ data }: NutritionProps) {
