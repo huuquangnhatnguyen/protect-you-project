@@ -7,8 +7,8 @@ import {
   seasonalIngredientsType,
 } from "../../@types/Dashboard/data.type";
 import ItemCard from "../../components/ItemCard";
-import PopUp from "../../components/Popup";
 import { colors, Modal, Paper, styled, Typography } from "@mui/material";
+import { DocumentData } from "firebase/firestore";
 
 const style = {
   position: "absolute",
@@ -46,7 +46,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 type DashboardPropTypes = {
   currentSeason: string;
-  data: SeasonalDataType;
+  data: DocumentData;
   curPage?: string;
   setCurPage: (newValue: string) => void;
 };
@@ -55,9 +55,6 @@ function Dashboard({ currentSeason, data, setCurPage }: DashboardPropTypes) {
   const [open, setOpen] = React.useState(false);
   const [curDiseaseInfo, setCurDiseaseInfo] = React.useState<DiseaseInfoType>();
 
-  const handleDevicePopUp = () => {
-    setOpen(true);
-  };
   const handleDevicePopupClose = () => {
     setOpen(false);
     setCurDiseaseInfo(undefined);
@@ -96,6 +93,7 @@ function Dashboard({ currentSeason, data, setCurPage }: DashboardPropTypes) {
                 // <PopUp key={disease.name} disease={disease} />
 
                 <Item
+                  key={disease.name}
                   onClick={() => {
                     setCurDiseaseInfo(disease);
                     setOpen(true);

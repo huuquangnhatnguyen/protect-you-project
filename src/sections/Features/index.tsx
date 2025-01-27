@@ -22,78 +22,75 @@ function FeaturesSection(props) {
         <Grid
           item
           xs={12}
-          md={6}
+          md={4}
           sx={{
             display: "flex",
             flexDirection: "column",
             padding: "1rem",
           }}
         >
-          <div style={{ boxShadow: "0 0 5px 0 rgba(0,0,0,0.3)" }}>
-            <div
-              style={{
-                background: "red",
-                width: "632px",
-                height: "430px",
-                margin: "2rem auto",
-                backgroundImage: `url(${dbImg})`,
-              }}
-            ></div>
+          <div
+            style={{
+              boxShadow: "0 0 5px 0 rgba(0,0,0,0.3)",
+              minHeight: "450px",
+              padding: "0.5rem 0.2rem",
+            }}
+          >
+            <img
+              src={dbImg}
+              alt="nutrition"
+              style={{ width: "100%", height: "auto" }}
+            />
             <Typography variant="h4">Health Dashboard</Typography>
             <Typography m="0 1rem 2rem 1rem">
-              Display all needed information: top 3 common diseases, top 3
-              nutrients needed to boost your immunity during the seasons, and
-              top 3 natural sources for those nutrients
+              Display healthcare information: top 3 common diseases, top 3 vital
+              nutrients and top 3 natural sources for them
             </Typography>
           </div>
         </Grid>
         <Grid
           item
           xs={12}
-          md={6}
+          md={4}
           sx={{ display: "flex", flexDirection: "column", padding: "1rem" }}
-        >
-          <div style={{ boxShadow: "0 0 5px 0 rgba(0,0,0,0.3)" }}>
-            <div
-              style={{
-                background: "red",
-                width: "632px",
-                height: "430px",
-                margin: "2rem auto",
-
-                backgroundImage: `url(${nutriImg})`,
-              }}
-            ></div>
-            <Typography variant="h4">Personal Nutrition</Typography>
-            <Typography m="0 1rem 2rem 1rem">
-              Tapping on the device's header or any natural sources, users will
-              be redirected to "Nutrition" Tab. This tab displays ingredients by
-              group of natural sources
-            </Typography>
-          </div>
-        </Grid>
-        <Grid
-          item
-          xs={12}
-          md={12}
-          sx={{ display: "flex", flexDirection: "column" }}
         >
           <div
             style={{
-              margin: " auto",
-              width: "fit-content",
               boxShadow: "0 0 5px 0 rgba(0,0,0,0.3)",
+              minHeight: "450px",
+              padding: "0.5rem 0.2rem",
             }}
           >
-            <div
-              style={{
-                background: "red",
-                width: "632px",
-                height: "430px",
-                margin: "2rem auto",
-                backgroundImage: `url(${alertsImg})`,
-              }}
-            ></div>
+            <img
+              src={nutriImg}
+              alt="nutrition"
+              style={{ width: "100%", height: "auto" }}
+            />
+            <Typography variant="h4">Personal Nutrition</Typography>
+            <Typography m="0 1rem 2rem 1rem">
+              Show all seasonal ingredients to be used in meals to boost
+              necessary nutrients
+            </Typography>
+          </div>
+        </Grid>
+        <Grid
+          item
+          xs={12}
+          md={4}
+          sx={{ display: "flex", flexDirection: "column", padding: "1rem" }}
+        >
+          <div
+            style={{
+              boxShadow: "0 0 5px 0 rgba(0,0,0,0.3)",
+              minHeight: "450px",
+              padding: "0.5rem 0.2rem",
+            }}
+          >
+            <img
+              src={alertsImg}
+              alt="alerts"
+              style={{ width: "100%", height: "auto" }}
+            />
             <Typography variant="h4">Healthcare alerts</Typography>
             <Typography m="0 1rem 2rem 1rem">
               Showing updated news about local healthcare likes outbreaks or

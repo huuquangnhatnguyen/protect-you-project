@@ -1,17 +1,18 @@
-import { useEffect, useState } from "react";
 import { Container } from "@mui/material";
-import Header from "../Header";
+import { DocumentData } from "firebase/firestore";
+import { useContext, useEffect, useState } from "react";
+import mockNotification from "../../assets/mockData/mockNotification.json";
+import { MyContext } from "../../context/MyContext";
+import Alerts from "../../pages/Alert";
 import Dashboard from "../../pages/Dashboard";
 import Nutrition from "../../pages/Nutrition";
-import Alerts from "../../pages/Alert";
-import Footer from "../DeviceFooter";
-import mockData from "../../assets/mockData/mockData.json";
-import mockNotification from "../../assets/mockData/mockNotification.json";
-import "./styles.scss";
 import DeviceFooter from "../DeviceFooter";
+import Header from "../Header";
+import "./styles.scss";
 
 function DeviceInterface() {
   const [curPage, setCurPage] = useState("Dashboard");
+  const { dataDB }: { dataDB: DocumentData } = useContext(MyContext);
   const curDate = new Date().toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
@@ -34,7 +35,6 @@ function DeviceInterface() {
     };
     setSeason(getSeason());
   }, []);
-
   return (
     <div className="mockup-container">
       <Container
@@ -56,13 +56,11 @@ function DeviceInterface() {
           {curPage === "Dashboard" && (
             <Dashboard
               currentSeason={currentSeason}
-              data={mockData[currentSeason]}
+              data={dataDB}
               setCurPage={setCurPage}
             />
           )}
-          {curPage === "Nutrition" && (
-            <Nutrition data={mockData[currentSeason]} />
-          )}
+          {curPage === "Nutrition" && <Nutrition data={dataDB} />}
           {curPage === "Alerts" && (
             <Alerts alerts={mockNotification["notifications"]} />
           )}
