@@ -159,7 +159,11 @@ function Dashboard({ currentSeason, data, setCurPage }: DashboardPropTypes) {
             >
               {advisoryNutrients &&
                 advisoryNutrients.map((nutrient: string) => (
-                  <ItemCard key={nutrient} name={nutrient} />
+                  <ItemCard
+                    key={nutrient}
+                    name={nutrient}
+                    setCurPage={setCurPage}
+                  />
                 ))}
             </Grid>
           </Grid>

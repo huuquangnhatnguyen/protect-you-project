@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid2";
 import {
@@ -7,12 +7,30 @@ import {
 } from "../../@types/Dashboard/data.type";
 import GroupOfItems from "../../components/GroupOfItems";
 import { DocumentData } from "firebase/firestore";
+import { colors, Modal, Typography } from "@mui/material";
+import IngredientModal from "./IngredientModal";
 
 type NutritionProps = {
   data: DocumentData;
+  chosenGroup?: string;
 };
 
-function Nutrition({ data }: NutritionProps) {
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  p: 4,
+};
+
+function Nutrition({ data, chosenGroup }: NutritionProps) {
+  const [ingredientOpen, setIngredientOpen] = React.useState(false);
+  const handleDevicePopupClose = () => {
+    setIngredientOpen(false);
+  };
+
   const seasonalIngredientGroups =
     data && data["seasonalIngredients"]
       ? data["seasonalIngredients"].map(
@@ -40,9 +58,16 @@ function Nutrition({ data }: NutritionProps) {
             title={group}
             items={seasonalIngredients[index]}
             color={colorMapping[index]}
+            chosenGroup=""
+            ingredientOpen={ingredientOpen}
+            setIngredientOpen={setIngredientOpen}
           />
         ))}
       </Grid>
+      <IngredientModal
+        ingredientOpen={ingredientOpen}
+        handleDevicePopupClose={handleDevicePopupClose}
+      />
     </Box>
   );
 }
