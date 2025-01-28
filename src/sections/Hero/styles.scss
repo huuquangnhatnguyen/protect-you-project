@@ -1,6 +1,6 @@
 .hero__container {
   width: 100%;
-  min-height: 600px;
+
   height: 100%;
   background-color: black;
   background-position-y: "top";
@@ -9,8 +9,8 @@
   margin-bottom: 2rem;
   .hero__content {
     width: 100%;
-    min-height: 600px;
-    background-color: rgba(0, 0, 0, 0.5);
+    // min-height: 800px;
+    height: 93vh;
     color: white;
     display: flex;
     text-align: left;

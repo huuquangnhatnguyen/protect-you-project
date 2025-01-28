@@ -18,6 +18,11 @@ function DeviceInterface() {
     month: "long",
     day: "numeric",
   });
+
+  const curTime = new Date().toLocaleTimeString("en-US", {
+    hour: "numeric",
+    minute: "numeric",
+  });
   const [currentSeason, setSeason] = useState("fall");
 
   useEffect(() => {
@@ -65,7 +70,7 @@ function DeviceInterface() {
             <Alerts alerts={mockNotification["notifications"]} />
           )}
         </div>
-        <DeviceFooter value={curDate} />
+        <DeviceFooter curDate={curDate} curTime={curTime} />
       </Container>
     </div>
   );

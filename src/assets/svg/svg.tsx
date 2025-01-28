@@ -15,6 +15,7 @@ import turmeric from "./ingredients/turmeric.svg";
 import salmon from "./ingredients/salmon.svg";
 import sardines from "./ingredients/sardine.svg";
 import mackerel from "./ingredients/mackerel.svg";
+import logo from "./logo.svg";
 
 const allSvg = {
   "vitamin c": vitaminC,
@@ -34,6 +35,7 @@ const allSvg = {
   salmon: salmon,
   sardines: sardines,
   mackerel: mackerel,
+  logo: logo,
 };
 
 export default allSvg;

@@ -1,5 +1,4 @@
-import React from "react";
-import PropTypes from "prop-types";
+import logo from "../../assets/images/logo.png";
 import "./styles.scss";
 
 Navbar.propTypes = {};
@@ -8,7 +7,7 @@ function Navbar(props) {
   return (
     <div className="navbar">
       <div className="navbar__logo">
-        <h2>Protect+</h2>{" "}
+        <img src={logo} alt="logo" />
       </div>
       <div className="navbar__links">
         <a href="/">Interactive Interface</a>

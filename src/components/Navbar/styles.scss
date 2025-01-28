@@ -1,7 +1,7 @@
 .navbar {
   position: fixed;
   top: 0;
-  background-color: whitesmoke;
+  background-color: #e4e4e4;
   color: black;
   display: flex;
   width: 100vw;
@@ -12,10 +12,13 @@
   z-index: 999;
 
   .navbar__logo {
+    display: flex;
     margin: 0;
     width: fit-content;
     margin-left: 10rem;
-
+    img {
+      width: 100px;
+    }
     h2 {
       margin: 0;
     }
