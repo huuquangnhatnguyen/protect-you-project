@@ -49,8 +49,15 @@ function Nutrition({ data, chosenGroup }: NutritionProps) {
           (ingredient: seasonalIngredientsType) => ingredient.color
         )
       : [];
+  const nutrients =
+    data && data["seasonalIngredients"]
+      ? data["seasonalIngredients"].map(
+          (ingredient: seasonalIngredientsType) => ingredient.nutrients
+        )
+      : [];
+  console.log(nutrients);
   return (
-    <Box sx={{ flexGrow: 1, height: "430px", margin: "auto" }}>
+    <Box sx={{ flexGrow: 1, height: "450px", margin: "auto" }}>
       <Grid container spacing={1} direction={"row"}>
         {seasonalIngredientGroups.map((group, index) => (
           <GroupOfItems
@@ -61,6 +68,7 @@ function Nutrition({ data, chosenGroup }: NutritionProps) {
             chosenGroup=""
             ingredientOpen={ingredientOpen}
             setIngredientOpen={setIngredientOpen}
+            nutrients={nutrients[index]}
           />
         ))}
       </Grid>

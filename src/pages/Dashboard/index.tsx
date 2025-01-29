@@ -75,7 +75,7 @@ function Dashboard({ currentSeason, data, setCurPage }: DashboardPropTypes) {
       : [];
 
   return (
-    <Box sx={{ flexGrow: 1, height: "430px" }}>
+    <Box sx={{ flexGrow: 1, height: "450px" }}>
       <Grid container spacing={2} direction={"column"}>
         <Grid sx={{ height: "240px", justifyContent: "center" }}>
           <h1
@@ -121,7 +121,7 @@ function Dashboard({ currentSeason, data, setCurPage }: DashboardPropTypes) {
                   position: "relative",
                   backgroundColor: "rgba(0, 0, 0, 0.5)",
                   width: "100%",
-                  height: "538px",
+                  height: "559px",
                 },
               },
             }}

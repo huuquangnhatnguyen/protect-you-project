@@ -1,12 +1,13 @@
 import React from "react";
 import Grid from "@mui/material/Grid2";
 import ItemCard from "../ItemCard";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import IngredientCard from "../IngredientCard";
 import "./styles.scss";
 
 type GroupOfItemsPropTypes = {
   title: string;
+  nutrients: Array<string>;
   items: Array<string>;
   color: string;
   chosenGroup?: string;
@@ -21,7 +22,9 @@ function GroupOfItems({
   chosenGroup,
   ingredientOpen,
   setIngredientOpen,
+  nutrients,
 }: GroupOfItemsPropTypes) {
+  console.log(nutrients);
   if (chosenGroup && chosenGroup === title) {
     return (
       <Box
@@ -82,7 +85,20 @@ function GroupOfItems({
         >
           {title}
         </h2>
-        <Grid container spacing={1} direction={"row"}>
+        <Grid
+          container
+          spacing={4}
+          direction={"row"}
+          sx={{ justifyContent: "center", m: 0 }}
+        >
+          {nutrients &&
+            nutrients.map((nutrient: string) => (
+              <Typography key={nutrient} variant="body2" color={`#${color}`}>
+                {nutrient}
+              </Typography>
+            ))}
+        </Grid>
+        <Grid container spacing={2} direction={"row"}>
           {items.map((item) => (
             <IngredientCard
               key={item}

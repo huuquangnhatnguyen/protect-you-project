@@ -11,7 +11,7 @@ type IngredientCardProps = {
 };
 
 const Item = styled(Paper)(({ theme, color }) => ({
-  margin: "10px auto",
+  margin: "4px auto",
   backgroundColor: "#fff",
   ...theme.typography.body2,
   padding: theme.spacing(1),
@@ -27,6 +27,7 @@ const Item = styled(Paper)(({ theme, color }) => ({
   height: "fit-content",
   "&:hover": {
     boxShadow: `0 0 5px 0 #${color}`,
+    pointer: "pointer",
   },
 }));
 

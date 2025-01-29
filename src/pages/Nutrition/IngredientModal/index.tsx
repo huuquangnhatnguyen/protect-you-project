@@ -31,7 +31,7 @@ function IngredientModal({ ingredientOpen, handleDevicePopupClose }) {
         root: {
           style: {
             position: "relative",
-            top: "-484px",
+            top: "-498px",
           },
         },
         backdrop: {
@@ -39,7 +39,7 @@ function IngredientModal({ ingredientOpen, handleDevicePopupClose }) {
             position: "relative",
             backgroundColor: "rgba(0, 0, 0, 0.5)",
             width: "100%",
-            height: "538px",
+            height: "558px",
           },
         },
       }}
