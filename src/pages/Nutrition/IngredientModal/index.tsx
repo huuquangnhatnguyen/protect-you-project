@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { Box, Grid, Modal, Typography } from "@mui/material";
+import { LocalContext } from "../LocalContext/localContext";
 
 const style = {
   position: "absolute",
@@ -17,9 +18,12 @@ IngredientModal.propTypes = {
   handleDevicePopupClose: PropTypes.func,
   ingredientName: PropTypes.string,
   imageUrl: PropTypes.string,
+  nutrientList: PropTypes.array,
 };
 
 function IngredientModal({ ingredientOpen, handleDevicePopupClose }) {
+  const { currentChosenIngredient } = useContext(LocalContext);
+  console.log("ingredientName:", currentChosenIngredient);
   return (
     <Modal
       disablePortal

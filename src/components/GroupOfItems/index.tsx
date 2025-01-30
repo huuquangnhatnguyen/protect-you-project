@@ -24,7 +24,7 @@ function GroupOfItems({
   setIngredientOpen,
   nutrients,
 }: GroupOfItemsPropTypes) {
-  console.log(nutrients);
+  console.log(title, items, color, ingredientOpen, nutrients);
   if (chosenGroup && chosenGroup === title) {
     return (
       <Box

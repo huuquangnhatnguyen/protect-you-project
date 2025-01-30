@@ -42,7 +42,6 @@ function App() {
 
         setSeason(getSeason());
         setDataDB(filteredData[curSeasonIndex]);
-        console.log("Data: ", dataDB, "Season: ", currentSeason);
       } catch (error) {
         console.log("Error getting documents: ", error);
       }
@@ -78,7 +77,7 @@ function App() {
         <InterfaceMockup />
         <Divider />
 
-        <Viewpoint360 />
+        {/* <Viewpoint360 /> */}
         <Divider />
 
         <Contacts />

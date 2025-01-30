@@ -9,6 +9,7 @@ import GroupOfItems from "../../components/GroupOfItems";
 import { DocumentData } from "firebase/firestore";
 import { colors, Modal, Typography } from "@mui/material";
 import IngredientModal from "./IngredientModal";
+import { LocalContext } from "./LocalContext/localContext";
 
 type NutritionProps = {
   data: DocumentData;
@@ -26,6 +27,9 @@ const style = {
 };
 
 function Nutrition({ data, chosenGroup }: NutritionProps) {
+  const [chosenIngredientName, setChosenIngredientName] = React.useState(
+    "the ingredient is new"
+  );
   const [ingredientOpen, setIngredientOpen] = React.useState(false);
   const handleDevicePopupClose = () => {
     setIngredientOpen(false);
@@ -55,28 +59,32 @@ function Nutrition({ data, chosenGroup }: NutritionProps) {
           (ingredient: seasonalIngredientsType) => ingredient.nutrients
         )
       : [];
-  console.log(nutrients);
+
   return (
-    <Box sx={{ flexGrow: 1, height: "450px", margin: "auto" }}>
-      <Grid container spacing={1} direction={"row"}>
-        {seasonalIngredientGroups.map((group, index) => (
-          <GroupOfItems
-            key={group}
-            title={group}
-            items={seasonalIngredients[index]}
-            color={colorMapping[index]}
-            chosenGroup=""
-            ingredientOpen={ingredientOpen}
-            setIngredientOpen={setIngredientOpen}
-            nutrients={nutrients[index]}
-          />
-        ))}
-      </Grid>
-      <IngredientModal
-        ingredientOpen={ingredientOpen}
-        handleDevicePopupClose={handleDevicePopupClose}
-      />
-    </Box>
+    <LocalContext.Provider
+      value={{ currentChosenIngredient: chosenIngredientName }}
+    >
+      <Box sx={{ flexGrow: 1, height: "450px", margin: "auto" }}>
+        <Grid container spacing={1} direction={"row"}>
+          {seasonalIngredientGroups.map((group, index) => (
+            <GroupOfItems
+              key={group}
+              title={group}
+              items={seasonalIngredients[index]}
+              color={colorMapping[index]}
+              chosenGroup=""
+              ingredientOpen={ingredientOpen}
+              setIngredientOpen={setIngredientOpen}
+              nutrients={nutrients[index]}
+            />
+          ))}
+        </Grid>
+        <IngredientModal
+          ingredientOpen={ingredientOpen}
+          handleDevicePopupClose={handleDevicePopupClose}
+        />
+      </Box>
+    </LocalContext.Provider>
   );
 }
 
