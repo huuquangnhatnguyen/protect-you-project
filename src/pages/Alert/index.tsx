@@ -11,7 +11,7 @@ type AlertsProps = {
 function Alerts({ alerts }: AlertsProps) {
   console.log(alerts);
   return (
-    <Box sx={{ flexGrow: 1, height: "430px" }}>
+    <Box sx={{ flexGrow: 1, height: "450px" }}>
       <Grid container spacing={2} direction={"column"}>
         {alerts
           ? alerts.map((alert) => (

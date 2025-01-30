@@ -52,8 +52,8 @@ function DeviceInterface() {
           borderImage: "linear-gradient(to bottom, silver, black) 1",
           boxShadow:
             "0 4px 8px rgba(0, 0, 0, 0.1), inset 0 0 10px rgba(0, 0, 0, 0.1)",
-          height: "550px",
-          width: "800px",
+          height: "570px",
+          width: "880px",
         }}
       >
         <Header curPage={curPage} setCurPage={setCurPage} />

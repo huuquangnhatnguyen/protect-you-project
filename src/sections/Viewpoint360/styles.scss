@@ -7,7 +7,7 @@
 
 .box {
   --width: 800px;
-  --height: 550px;
+  --height: 570px;
   --depth: 20px;
   --bgColor: hsl(20, 8%, 69%);
   width: var(--width);
@@ -84,7 +84,7 @@
 }
 
 .box {
-  animation: rotate 10s linear infinite;
+  animation: rotate 10s linear;
 }
 
 @keyframes rotate {

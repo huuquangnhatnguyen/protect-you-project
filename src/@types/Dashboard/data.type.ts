@@ -22,3 +22,9 @@ export interface NoficationType {
   type: string;
   content: string;
 }
+
+export interface chosenIngredient {
+  name: string;
+  imageUrl: string;
+  nutrients: Array<string>;
+}
